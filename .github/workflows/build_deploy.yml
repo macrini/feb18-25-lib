@@ -1,0 +1,152 @@
+# Build and deploy modules based on version changes
+# Modules are only built when their version number increases
+# All builds are preserved in the gh-pages branch
+name: Build and Deploy
+
+on:
+    push:
+        branches: [main]
+
+    # Allows you to run this workflow manually from the Actions tab
+    workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+    contents: write
+    pages: write
+    id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+    group: 'pages'
+    cancel-in-progress: false
+
+jobs:
+    # prepare data for downstream jobs to use
+    prepare:
+        runs-on: ubuntu-latest
+
+        # set outputs
+        outputs:
+            build_modules: ${{ steps.check.outputs.modules }}
+            public_url: ${{ steps.url.outputs.url }}
+            first_deployment: ${{ steps.ensure-gh-pages.outputs.first_deployment }}
+
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Ensure gh-pages Branch Exists
+              id: ensure-gh-pages
+              run: |
+                  git config user.name "github-actions"
+                  git config user.email "github-actions@github.com"
+                  if ! git ls-remote --exit-code origin gh-pages; then
+                    git checkout --orphan gh-pages
+                    git rm -rf .
+                    echo "This branch is used for GitHub Pages deployment" > README.md
+                    touch .nojekyll
+                    git add README.md .nojekyll
+                    git commit -m "Initial commit on gh-pages branch [skip ci]"
+                    git push origin gh-pages
+                    git checkout main
+                    echo "first_deployment=true" >> "$GITHUB_OUTPUT"
+                  else
+                    echo "gh-pages branch already exists."
+                    echo "first_deployment=false" >> "$GITHUB_OUTPUT"
+                  fi
+
+            # Create version history file if it doesn't exist
+            - name: Initialize Version History
+              run: |
+                  if [[ ! -f .github/module-versions.json ]]; then
+                    echo "{}" > .github/module-versions.json
+                  fi
+
+            # Determine which modules need building based on version changes
+            - id: check
+              name: Check Version Changes
+              run: node .github/scripts/version-check.js >> "$GITHUB_OUTPUT"
+              env:
+                  FIRST_DEPLOYMENT: ${{ steps.ensure-gh-pages.outputs.first_deployment }}
+
+            # Set URL for public access via GitHub Pages
+            - id: url
+              name: Set Public URL
+              run: echo "url=https://${GITHUB_REPOSITORY_OWNER}.github.io/${GITHUB_REPOSITORY#*/}" >> "$GITHUB_OUTPUT"
+
+    build:
+        needs: prepare
+        # Skip if no modules need updating
+        if: ${{ needs.prepare.outputs.build_modules != '' }}
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - run: yarn
+
+            # Build only modules with version increases
+            - name: Build Modules
+              run: yarn build
+              env:
+                  NODE_ENV: production
+                  PUBLIC_URL: ${{ needs.prepare.outputs.public_url }}
+                  TARGET_MODULE: ${{ needs.prepare.outputs.build_modules }}
+
+            # Generate index page for GitHub Pages
+            - name: Generate Index Page
+              run: node .github/scripts/generateIndex.js $GITHUB_REPOSITORY
+
+            # Save build output for deployment
+            - name: Upload Build
+              uses: actions/upload-artifact@v4
+              with:
+                  name: dist
+                  path: ./dist
+
+    deploy:
+        needs: [prepare, build]
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+
+            # Get build output
+            - uses: actions/download-artifact@v4
+              with:
+                  name: dist
+                  path: dist
+
+            # Deploy to gh-pages branch, preserving previous builds
+            - name: Deploy to GitHub Pages
+              uses: peaceiris/actions-gh-pages@v4
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: dist
+                  keep_files: true
+                  publish_branch: gh-pages
+
+            # Cleanup
+            - uses: geekyeggo/delete-artifact@v5
+              with:
+                  name: dist
+                  failOnError: false
+
+            # Update version history (only after successful deployment)
+            - name: Update Version History
+              env:
+                  TARGET_MODULE: ${{ needs.prepare.outputs.build_modules }}
+              run: node .github/scripts/update-history.js
+
+            # Commit updated version history to main branch
+            - name: Commit Updated Version History
+              run: |
+                  git config user.name "github-actions"
+                  git config user.email "github-actions@github.com"
+                  git add .github/module-versions.json
+                  git commit -m "Update module versions [skip ci]" || echo "No changes to commit"
+                  git push origin main
+
+            # Append the URL to the job summary
+            - name: Write Deployment URL to Summary
+              run: |
+                  echo "## Deployed Runtime Modules" >> "$GITHUB_STEP_SUMMARY"
+                  echo "[View your published libraries](${{ needs.prepare.outputs.public_url }})" >> "$GITHUB_STEP_SUMMARY"
