@@ -1,0 +1,17 @@
+module: StarterLibrary@0.1.0
+
+# url: https://uniwebcms.github.io
+# module: AcademicModules/M1
+# version: latest # or specific hash
+
+name: site7
+description:
+template: basic
+createdAt: "2025-02-22T20:20:00.839Z"
+version: 1.0.0
+build:
+  outDir: dist
+  assets: public
+dev:
+  port: 3000
+  host: localhost
