@@ -1,18 +1,19 @@
 ---
 component: Hero
+Some Name: test
 config:
-    theme: dark
-    properties:
-       alignment: left 
-    standardOptions:
-        colors:
-            elements:
-                dark:
-                    text-color: "#d1d5db"
-                    callout: rgba(255,255,255, 1)
-                    muted: "#ffedd5"
-                    highlight: "#dbeafe"
-            baseColorId: ''
+  theme: dark
+  properties:
+    alignment: left
+  standardOptions:
+    colors:
+      elements:
+        dark:
+          text-color: "#d1d5db"
+          callout: rgba(255,255,255, 1)
+          muted: "#ffedd5"
+          highlight: "#dbeafe"
+      baseColorId: ""
 ---
 
 ![bg](banner:http://127.0.0.1:3000/img/bg.webp "the background picture of hero")

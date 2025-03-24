@@ -46,6 +46,8 @@ const RAW_RUNTIME_STATE =
           ["@babel/preset-react", "virtual:824c58c4ca55fef1a076a1e64b7aec198a1ece2c5def509c3d1d297365e28d0ced92769a9e6ef28770f6904227157ce4b4bf37f4004599fd784716c78f724d03#npm:7.26.3"],\
           ["@babel/preset-typescript", "virtual:824c58c4ca55fef1a076a1e64b7aec198a1ece2c5def509c3d1d297365e28d0ced92769a9e6ef28770f6904227157ce4b4bf37f4004599fd784716c78f724d03#npm:7.26.0"],\
           ["@tailwindcss/nesting", "virtual:824c58c4ca55fef1a076a1e64b7aec198a1ece2c5def509c3d1d297365e28d0ced92769a9e6ef28770f6904227157ce4b4bf37f4004599fd784716c78f724d03#npm:0.0.0-insiders.565cd3e"],\
+          ["@types/react", "npm:19.0.10"],\
+          ["@types/react-dom", "virtual:824c58c4ca55fef1a076a1e64b7aec198a1ece2c5def509c3d1d297365e28d0ced92769a9e6ef28770f6904227157ce4b4bf37f4004599fd784716c78f724d03#npm:19.0.4"],\
           ["@uniwebcms/site-content-collector", "virtual:824c58c4ca55fef1a076a1e64b7aec198a1ece2c5def509c3d1d297365e28d0ced92769a9e6ef28770f6904227157ce4b4bf37f4004599fd784716c78f724d03#portal:../site-content-collector::locator=website-components-template%40workspace%3A."],\
           ["autoprefixer", "virtual:824c58c4ca55fef1a076a1e64b7aec198a1ece2c5def509c3d1d297365e28d0ced92769a9e6ef28770f6904227157ce4b4bf37f4004599fd784716c78f724d03#npm:10.4.20"],\
           ["babel-loader", "virtual:824c58c4ca55fef1a076a1e64b7aec198a1ece2c5def509c3d1d297365e28d0ced92769a9e6ef28770f6904227157ce4b4bf37f4004599fd784716c78f724d03#npm:8.4.1"],\
@@ -4191,6 +4193,36 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@types/react", [\
+      ["npm:19.0.10", {\
+        "packageLocation": "./.yarn/cache/@types-react-npm-19.0.10-ad7744c06a-10b592d212.zip/node_modules/@types/react/",\
+        "packageDependencies": [\
+          ["@types/react", "npm:19.0.10"],\
+          ["csstype", "npm:3.1.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/react-dom", [\
+      ["npm:19.0.4", {\
+        "packageLocation": "./.yarn/cache/@types-react-dom-npm-19.0.4-d87a27eb4c-f15d470242.zip/node_modules/@types/react-dom/",\
+        "packageDependencies": [\
+          ["@types/react-dom", "npm:19.0.4"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:824c58c4ca55fef1a076a1e64b7aec198a1ece2c5def509c3d1d297365e28d0ced92769a9e6ef28770f6904227157ce4b4bf37f4004599fd784716c78f724d03#npm:19.0.4", {\
+        "packageLocation": "./.yarn/__virtual__/@types-react-dom-virtual-b4366e5355/0/cache/@types-react-dom-npm-19.0.4-d87a27eb4c-f15d470242.zip/node_modules/@types/react-dom/",\
+        "packageDependencies": [\
+          ["@types/react-dom", "virtual:824c58c4ca55fef1a076a1e64b7aec198a1ece2c5def509c3d1d297365e28d0ced92769a9e6ef28770f6904227157ce4b4bf37f4004599fd784716c78f724d03#npm:19.0.4"],\
+          ["@types/react", "npm:19.0.10"]\
+        ],\
+        "packagePeers": [\
+          "@types/react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@types/retry", [\
       ["npm:0.12.2", {\
         "packageLocation": "./.yarn/cache/@types-retry-npm-0.12.2-e1f0617c50-e567503571.zip/node_modules/@types/retry/",\
@@ -4291,6 +4323,16 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@uniwebcms/dev-tools", [\
+      ["file:../dev-tools#../dev-tools::hash=a1631f&locator=%40uniwebcms%2Fsite-content-collector%40portal%3A..%2Fsite-content-collector%3A%3Alocator%3Dwebsite-components-template%2540workspace%253A.", {\
+        "packageLocation": "./.yarn/unplugged/@uniwebcms-dev-tools-file-14ad53ccb2/node_modules/@uniwebcms/dev-tools/",\
+        "packageDependencies": [\
+          ["@uniwebcms/dev-tools", "file:../dev-tools#../dev-tools::hash=a1631f&locator=%40uniwebcms%2Fsite-content-collector%40portal%3A..%2Fsite-content-collector%3A%3Alocator%3Dwebsite-components-template%2540workspace%253A."],\
+          ["js-yaml", "npm:4.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@uniwebcms/module-sdk", [\
       ["npm:1.23.4", {\
         "packageLocation": "./.yarn/cache/@uniwebcms-module-sdk-npm-1.23.4-b687bf665c-387e6132f5.zip/node_modules/@uniwebcms/module-sdk/",\
@@ -4348,12 +4390,14 @@ const RAW_RUNTIME_STATE =
           ["@babel/core", "npm:7.26.9"],\
           ["@babel/preset-env", "virtual:824c58c4ca55fef1a076a1e64b7aec198a1ece2c5def509c3d1d297365e28d0ced92769a9e6ef28770f6904227157ce4b4bf37f4004599fd784716c78f724d03#npm:7.26.9"],\
           ["@babel/preset-react", "virtual:824c58c4ca55fef1a076a1e64b7aec198a1ece2c5def509c3d1d297365e28d0ced92769a9e6ef28770f6904227157ce4b4bf37f4004599fd784716c78f724d03#npm:7.26.3"],\
+          ["@babel/preset-typescript", "virtual:824c58c4ca55fef1a076a1e64b7aec198a1ece2c5def509c3d1d297365e28d0ced92769a9e6ef28770f6904227157ce4b4bf37f4004599fd784716c78f724d03#npm:7.26.0"],\
           ["@tailwindcss/nesting", "virtual:824c58c4ca55fef1a076a1e64b7aec198a1ece2c5def509c3d1d297365e28d0ced92769a9e6ef28770f6904227157ce4b4bf37f4004599fd784716c78f724d03#npm:0.0.0-insiders.565cd3e"],\
           ["@types/autoprefixer", null],\
           ["@types/babel-loader", null],\
           ["@types/babel__core", null],\
           ["@types/babel__preset-env", null],\
           ["@types/babel__preset-react", null],\
+          ["@types/babel__preset-typescript", null],\
           ["@types/compression-webpack-plugin", null],\
           ["@types/copy-webpack-plugin", null],\
           ["@types/css-loader", null],\
@@ -4364,16 +4408,20 @@ const RAW_RUNTIME_STATE =
           ["@types/postcss-loader", null],\
           ["@types/postcss-preset-env", null],\
           ["@types/raw-loader", null],\
+          ["@types/react", "npm:19.0.10"],\
+          ["@types/react-dom", "virtual:824c58c4ca55fef1a076a1e64b7aec198a1ece2c5def509c3d1d297365e28d0ced92769a9e6ef28770f6904227157ce4b4bf37f4004599fd784716c78f724d03#npm:19.0.4"],\
           ["@types/sass", null],\
           ["@types/style-loader", null],\
           ["@types/tailwindcss", null],\
           ["@types/tailwindcss__nesting", null],\
           ["@types/terser-webpack-plugin", null],\
+          ["@types/typescript", null],\
           ["@types/uuid", null],\
           ["@types/webpack", null],\
           ["@types/webpack-cli", null],\
           ["@types/webpack-dev-server", null],\
           ["@uniwebcms/content-reader", "npm:1.0.3"],\
+          ["@uniwebcms/dev-tools", "file:../dev-tools#../dev-tools::hash=a1631f&locator=%40uniwebcms%2Fsite-content-collector%40portal%3A..%2Fsite-content-collector%3A%3Alocator%3Dwebsite-components-template%2540workspace%253A."],\
           ["autoprefixer", "virtual:824c58c4ca55fef1a076a1e64b7aec198a1ece2c5def509c3d1d297365e28d0ced92769a9e6ef28770f6904227157ce4b4bf37f4004599fd784716c78f724d03#npm:10.4.20"],\
           ["babel-loader", "virtual:824c58c4ca55fef1a076a1e64b7aec198a1ece2c5def509c3d1d297365e28d0ced92769a9e6ef28770f6904227157ce4b4bf37f4004599fd784716c78f724d03#npm:8.4.1"],\
           ["chalk", "npm:5.4.1"],\
@@ -4398,6 +4446,7 @@ const RAW_RUNTIME_STATE =
           ["style-loader", "virtual:824c58c4ca55fef1a076a1e64b7aec198a1ece2c5def509c3d1d297365e28d0ced92769a9e6ef28770f6904227157ce4b4bf37f4004599fd784716c78f724d03#npm:2.0.0"],\
           ["tailwindcss", "npm:3.4.17"],\
           ["terser-webpack-plugin", "virtual:824c58c4ca55fef1a076a1e64b7aec198a1ece2c5def509c3d1d297365e28d0ced92769a9e6ef28770f6904227157ce4b4bf37f4004599fd784716c78f724d03#npm:5.3.11"],\
+          ["typescript", "patch:typescript@npm%3A5.8.2#optional!builtin<compat/typescript>::version=5.8.2&hash=d69c25"],\
           ["uuid", "npm:9.0.1"],\
           ["webpack", "virtual:824c58c4ca55fef1a076a1e64b7aec198a1ece2c5def509c3d1d297365e28d0ced92769a9e6ef28770f6904227157ce4b4bf37f4004599fd784716c78f724d03#npm:5.98.0"],\
           ["webpack-cli", "virtual:824c58c4ca55fef1a076a1e64b7aec198a1ece2c5def509c3d1d297365e28d0ced92769a9e6ef28770f6904227157ce4b4bf37f4004599fd784716c78f724d03#npm:6.0.1"],\
@@ -4407,12 +4456,14 @@ const RAW_RUNTIME_STATE =
           "@babel/core",\
           "@babel/preset-env",\
           "@babel/preset-react",\
+          "@babel/preset-typescript",\
           "@tailwindcss/nesting",\
           "@types/autoprefixer",\
           "@types/babel-loader",\
           "@types/babel__core",\
           "@types/babel__preset-env",\
           "@types/babel__preset-react",\
+          "@types/babel__preset-typescript",\
           "@types/compression-webpack-plugin",\
           "@types/copy-webpack-plugin",\
           "@types/css-loader",\
@@ -4423,11 +4474,14 @@ const RAW_RUNTIME_STATE =
           "@types/postcss-preset-env",\
           "@types/postcss",\
           "@types/raw-loader",\
+          "@types/react-dom",\
+          "@types/react",\
           "@types/sass",\
           "@types/style-loader",\
           "@types/tailwindcss",\
           "@types/tailwindcss__nesting",\
           "@types/terser-webpack-plugin",\
+          "@types/typescript",\
           "@types/uuid",\
           "@types/webpack-cli",\
           "@types/webpack-dev-server",\
@@ -4448,6 +4502,7 @@ const RAW_RUNTIME_STATE =
           "style-loader",\
           "tailwindcss",\
           "terser-webpack-plugin",\
+          "typescript",\
           "uuid",\
           "webpack-cli",\
           "webpack-dev-server",\
@@ -6286,6 +6341,15 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["csso", "npm:5.0.5"],\
           ["css-tree", "npm:2.2.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["csstype", [\
+      ["npm:3.1.3", {\
+        "packageLocation": "./.yarn/cache/csstype-npm-3.1.3-e9a1c85013-f593cce41f.zip/node_modules/csstype/",\
+        "packageDependencies": [\
+          ["csstype", "npm:3.1.3"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -11027,7 +11091,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/__virtual__/react-dom-virtual-92b2207668/0/cache/react-dom-npm-17.0.2-f551215af1-0b3836131a.zip/node_modules/react-dom/",\
         "packageDependencies": [\
           ["react-dom", "virtual:824c58c4ca55fef1a076a1e64b7aec198a1ece2c5def509c3d1d297365e28d0ced92769a9e6ef28770f6904227157ce4b4bf37f4004599fd784716c78f724d03#npm:17.0.2"],\
-          ["@types/react", null],\
+          ["@types/react", "npm:19.0.10"],\
           ["loose-envify", "npm:1.4.0"],\
           ["object-assign", "npm:4.1.1"],\
           ["react", "npm:17.0.2"],\
@@ -12992,6 +13056,8 @@ const RAW_RUNTIME_STATE =
           ["@babel/preset-react", "virtual:824c58c4ca55fef1a076a1e64b7aec198a1ece2c5def509c3d1d297365e28d0ced92769a9e6ef28770f6904227157ce4b4bf37f4004599fd784716c78f724d03#npm:7.26.3"],\
           ["@babel/preset-typescript", "virtual:824c58c4ca55fef1a076a1e64b7aec198a1ece2c5def509c3d1d297365e28d0ced92769a9e6ef28770f6904227157ce4b4bf37f4004599fd784716c78f724d03#npm:7.26.0"],\
           ["@tailwindcss/nesting", "virtual:824c58c4ca55fef1a076a1e64b7aec198a1ece2c5def509c3d1d297365e28d0ced92769a9e6ef28770f6904227157ce4b4bf37f4004599fd784716c78f724d03#npm:0.0.0-insiders.565cd3e"],\
+          ["@types/react", "npm:19.0.10"],\
+          ["@types/react-dom", "virtual:824c58c4ca55fef1a076a1e64b7aec198a1ece2c5def509c3d1d297365e28d0ced92769a9e6ef28770f6904227157ce4b4bf37f4004599fd784716c78f724d03#npm:19.0.4"],\
           ["@uniwebcms/site-content-collector", "virtual:824c58c4ca55fef1a076a1e64b7aec198a1ece2c5def509c3d1d297365e28d0ced92769a9e6ef28770f6904227157ce4b4bf37f4004599fd784716c78f724d03#portal:../site-content-collector::locator=website-components-template%40workspace%3A."],\
           ["autoprefixer", "virtual:824c58c4ca55fef1a076a1e64b7aec198a1ece2c5def509c3d1d297365e28d0ced92769a9e6ef28770f6904227157ce4b4bf37f4004599fd784716c78f724d03#npm:10.4.20"],\
           ["babel-loader", "virtual:824c58c4ca55fef1a076a1e64b7aec198a1ece2c5def509c3d1d297365e28d0ced92769a9e6ef28770f6904227157ce4b4bf37f4004599fd784716c78f724d03#npm:8.4.1"],\

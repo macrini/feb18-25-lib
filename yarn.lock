@@ -2618,6 +2618,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-dom@npm:^19.0.4":
+  version: 19.0.4
+  resolution: "@types/react-dom@npm:19.0.4"
+  peerDependencies:
+    "@types/react": ^19.0.0
+  checksum: 10/f15d470242f0b7cca57dd7e991a2852525ac93b2cb92f7e6c104d7bd6a978c3b1d0ba9b8698f23bc19c16b5cd98a6d160007be52c61196952f57cf019f204254
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:^19.0.10":
+  version: 19.0.10
+  resolution: "@types/react@npm:19.0.10"
+  dependencies:
+    csstype: "npm:^3.0.2"
+  checksum: 10/10b592d212ebe4b4e0bd42a95c58af3d8dfcb8b3fa4b412d686c2ff8810d5dd3e3a30ebedb31d7b738e33a39c43503e24fe4e6ca8a21d842870043793f4eda98
+  languageName: node
+  linkType: hard
+
 "@types/retry@npm:0.12.2":
   version: 0.12.2
   resolution: "@types/retry@npm:0.12.2"
@@ -2705,6 +2723,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@uniwebcms/dev-tools@file:../dev-tools::locator=%40uniwebcms%2Fsite-content-collector%40portal%3A..%2Fsite-content-collector%3A%3Alocator%3Dwebsite-components-template%2540workspace%253A.":
+  version: 1.0.0
+  resolution: "@uniwebcms/dev-tools@file:../dev-tools#../dev-tools::hash=a1631f&locator=%40uniwebcms%2Fsite-content-collector%40portal%3A..%2Fsite-content-collector%3A%3Alocator%3Dwebsite-components-template%2540workspace%253A."
+  dependencies:
+    js-yaml: "npm:^4.1.0"
+  bin:
+    extract-tools: ./bin/extract-tools.js
+  checksum: 10/3755bd42b37e759b397f06ad9e5132160ad2425c6d38f9ff2b27ad53a84c77a0055ce0de8a788abe8052103109881b13273208e4773c222e58bf6119f6f91c2f
+  languageName: node
+  linkType: hard
+
 "@uniwebcms/module-sdk@npm:^1.22.1":
   version: 1.23.4
   resolution: "@uniwebcms/module-sdk@npm:1.23.4"
@@ -2735,6 +2764,7 @@ __metadata:
   resolution: "@uniwebcms/site-content-collector@portal:../site-content-collector::locator=website-components-template%40workspace%3A."
   dependencies:
     "@uniwebcms/content-reader": "npm:^1.0.3"
+    "@uniwebcms/dev-tools": "file:../dev-tools"
     chalk: "npm:^5.4.1"
     commander: "npm:^11.1.0"
     handlebars: "npm:^4.7.8"
@@ -2747,7 +2777,10 @@ __metadata:
     "@babel/core": ^7.13.14
     "@babel/preset-env": ^7.13.12
     "@babel/preset-react": ^7.13.13
+    "@babel/preset-typescript": ^7.26.0
     "@tailwindcss/nesting": ^0.0.0-insiders.565cd3e
+    "@types/react": ^19.0.10
+    "@types/react-dom": ^19.0.4
     autoprefixer: ^10.4.13
     babel-loader: ^8.2.2
     compression-webpack-plugin: ^10.0.0
@@ -2764,6 +2797,7 @@ __metadata:
     style-loader: ^2.0.0
     tailwindcss: ^3.4.1
     terser-webpack-plugin: ^5.3.11
+    typescript: ^5.8.2
     uuid: ^9.0.0
     webpack: ^5.98.0
     webpack-cli: ^6.0.1
@@ -4129,6 +4163,13 @@ __metadata:
   dependencies:
     css-tree: "npm:~2.2.0"
   checksum: 10/4036fb2b9f8ed6b948349136b39e0b19ffb5edee934893a37b55e9a116186c4ae2a9d3ba66fbdbc07fa44a853fb478cd2d8733e4743473dcd364e7f21444ff34
+  languageName: node
+  linkType: hard
+
+"csstype@npm:^3.0.2":
+  version: 3.1.3
+  resolution: "csstype@npm:3.1.3"
+  checksum: 10/f593cce41ff5ade23f44e77521e3a1bcc2c64107041e1bf6c3c32adc5187d0d60983292fda326154d20b01079e24931aa5b08e4467cc488b60bb1e7f6d478ade
   languageName: node
   linkType: hard
 
@@ -9313,6 +9354,8 @@ __metadata:
     "@babel/preset-react": "npm:^7.13.13"
     "@babel/preset-typescript": "npm:^7.26.0"
     "@tailwindcss/nesting": "npm:^0.0.0-insiders.565cd3e"
+    "@types/react": "npm:^19.0.10"
+    "@types/react-dom": "npm:^19.0.4"
     "@uniwebcms/site-content-collector": "portal:../site-content-collector"
     autoprefixer: "npm:^10.4.13"
     babel-loader: "npm:^8.2.2"
