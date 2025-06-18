@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "dependencies": {
-    "@uniwebcms/uniweb-rte": "portal:../../../uniweb-rte",
+    "@uniwebcms/uniweb-rte": "file:../../../uniweb-rte",
     "html-react-parser": "^5.1.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
